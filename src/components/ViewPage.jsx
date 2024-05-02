@@ -28,13 +28,13 @@ export default function ViewPage() {
 
   const getCurrentClass = (batch, currentTime) => {
     const dayOfWeek = currentTime.toLocaleDateString('en-US', { weekday: 'long' });
-    console.log(dayOfWeek)
+    const time = currentDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     if (routineData && routineData[batch] && routineData[batch][dayOfWeek]) {
       const routines = routineData[batch][dayOfWeek];
       const currentRoutine = routines.find(routine => {
-        const routineStart = new Date(`2000-01-01T${routine.start}`);
-        const routineEnd = new Date(`2000-01-01T${routine.end}`);
-        return currentTime >= routineStart && currentTime < routineEnd;
+        const routineStart = new Date(`2000-01-01T${routine.start}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const routineEnd = new Date(`2000-01-01T${routine.end}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        return time >= routineStart && time < routineEnd;
       });
       return currentRoutine ? currentRoutine.class : 'No class';
     } else {
@@ -61,7 +61,7 @@ export default function ViewPage() {
               </div>
               <div className="card-routine">
                 <h3>Live Class:</h3>
-                <p>{getCurrentClass(batch.batch, currentDateTime)}</p>
+                <p className="live-class">{getCurrentClass(batch.batch, currentDateTime)}</p>
               </div>
             </div>
           </div>

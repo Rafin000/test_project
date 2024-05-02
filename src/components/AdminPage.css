@@ -48,6 +48,7 @@
 .success-message {
   font-size: small;
   color: green;
+  font-weight: bold;
   text-align: left;
   margin-top: 10px;
   margin-bottom: 10px;

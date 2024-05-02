@@ -3,11 +3,11 @@
 const routineData = {
   '18': {
     'Monday': [
-      { start: '09:00', end: '09:50', class: 'Math' },
-      { start: '09:50', end: '10:40', class: 'English' },
-      { start: '10:40', end: '11:00', class: 'Break' },
-      { start: '11:00', end: '11:50', class: 'Bangla' },
-      { start: '11:50', end: '12:40', class: 'Biology' }
+      { start: '09:00', end: '09:50', class: 'HUM 122' },
+      { start: '09:50', end: '10:40', class: 'Math 101' },
+      { start: '10:40', end: '11:00', class: 'ETE 202' },
+      { start: '11:00', end: '11:50', class: 'ETE 101' },
+      { start: '11:50', end: '12:40', class: 'EEE 101' }
     ],
     'Tuesday': [
       { start: '09:00', end: '09:50', class: 'Math' },
@@ -34,7 +34,7 @@ const routineData = {
       { start: '09:00', end: '09:50', class: 'Math' },
       { start: '09:50', end: '10:40', class: 'English' },
       { start: '10:40', end: '11:00', class: 'Break' },
-      { start: '11:00', end: '11:50', class: 'Bangla' },
+      { start: '11:00', end: '11:50', class: 'ETE 101' },
       { start: '11:50', end: '12:40', class: 'Biology' }
     ],
   },
@@ -121,11 +121,11 @@ const routineData = {
       { start: '11:50', end: '12:40', class: 'Biology' }
     ],
     'Tuesday': [
-      { start: '09:00', end: '09:50', class: 'Math' },
+      { start: '09:00', end: '09:50', class: 'ETE 101' },
       { start: '09:50', end: '10:40', class: 'English' },
       { start: '10:40', end: '11:00', class: 'Break' },
       { start: '11:00', end: '11:50', class: 'Bangla' },
-      { start: '11:50', end: '12:40', class: 'Biology' }
+      { start: '11:50', end: '12:40', class: 'EEE 222' }
     ],
     'Sunday': [
       { start: '09:00', end: '09:50', class: 'Math' },
@@ -182,8 +182,8 @@ const routineData = {
       { start: '09:00', end: '09:50', class: 'Math' },
       { start: '09:50', end: '10:40', class: 'English' },
       { start: '10:40', end: '11:00', class: 'Break' },
-      { start: '11:00', end: '11:50', class: 'Bangla' },
-      { start: '11:50', end: '12:40', class: 'Biology' }
+      { start: '11:00', end: '11:50', class: 'ME 121' },
+      { start: '11:50', end: '12:40', class: 'MATH 222' }
     ],
   },
 };
