@@ -1,40 +1,40 @@
-import AdminPage from "./components/AdminPage";
+import AdminPage from "./components/Admin/AdminPage";
 import NotFoundPage from "./components/NotFound";
-import HomePage from "./components/HomePage";
-import ViewPage from "./components/ViewPage";
-import Login from "./components/Login"
+import HomePage from "./components/Home/HomePage";
+import Login from "./components/Login/Login"
 import { Routes, Route } from 'react-router-dom'
-import NavBar from './components/NavBar'
-import Footer from './components/Footer'
+import NavBar from './components/Common/NavBar/NavBar'
+import Footer from './components/Common/Footer/Footer'
 import { RequireAuth } from "./components/RequireAuth";
-import AboutPage from "./components/AboutPage";
-import SimulationLab from "./components/Lab/SimulationLab";
-import CommunicationLab from "./components/Lab/CommunicationLab";
-import ElectronicsLab from "./components/Lab/ElectronicsLab";
-import ResearchPage from "./components/ResearchPage";
-import ContactPage from "./components/ContactPage";
+import AboutPage from "./components/About/AboutPage";
+import SimulationLab from "./components/Lab/SimulationLab/SimulationLab";
+import CommunicationLab from "./components/Lab/Communication/CommunicationLab";
+import ElectronicsLab from "./components/Lab/Electronics/ElectronicsLab";
+import ResearchPage from "./components/Research/ResearchPage";
+import ContactPage from "./components/Contact/ContactPage";
+import AcademicPage from "./components/Academic/AcademicPage";
 
 export default function App() {
   return (
-    <div>  
+    <div>
       <NavBar />
       <Routes>
-        <Route path="/" element={<HomePage />}/>
+        <Route path="/" element={<HomePage />} />
         <Route path="admin" element={
           <RequireAuth>
             <AdminPage />
           </RequireAuth>} />
-        <Route path="view" element={<ViewPage />} />
+        <Route path="academic" element={<AcademicPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="simulation" element={<SimulationLab />} />
         <Route path="communication" element={<CommunicationLab />} />
         <Route path="electronics" element={<ElectronicsLab />} />
         <Route path="research" element={<ResearchPage />} />
         <Route path="contact-us" element={<ContactPage />} />
-        <Route path="login" element={<Login/>} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
 
   );

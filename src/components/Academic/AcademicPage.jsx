@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import './ViewPage.css';
-import routineData from '../RoutineData'; // Import routine data
+import './AcademicPage.css';
+import routineData from '../../RoutineData'; // Import routine data
 
-export default function ViewPage() {
+export default function AcademicPage() {
   const [batches, setBatches] = useState([]);
 
   useEffect(() => {

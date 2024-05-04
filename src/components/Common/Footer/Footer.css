@@ -81,7 +81,7 @@ button[type="submit"] {
   align-items: center;
   margin-right: 20px;
   
-  line-height: 2; /* Increased line spacing */
+  line-height: 2; 
 }
 
 .contact-info i {
@@ -97,7 +97,6 @@ button[type="submit"] {
   color: red;
 }
 
-/* Description and copyright text */
 .footer-dark p {
   text-align: left;
   color: #fff;
@@ -132,7 +131,6 @@ button[type="submit"] {
     margin-bottom: 25px;
 }
 
-/*------ course ------*/
 
 .course{
 

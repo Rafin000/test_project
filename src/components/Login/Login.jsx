@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { useAuth } from './auth';
-import './Login.css'; 
+import { useAuth } from '../Auth/auth';
+import './Login.css';
 
 const Login = () => {
   const [user, setUser] = useState('');
@@ -10,7 +10,7 @@ const Login = () => {
   const location = useLocation();
 
   const redirect = location.state?.path || '/'
-  
+
   const handleLogin = () => {
     auth.login(user);
     navigate(redirect, { replace: true });
