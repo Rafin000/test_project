@@ -46,23 +46,22 @@ export default function AcademicPage() {
 
 
   return (
-    <div className="container">
-      <h1 className="header">View Page</h1>
-      <div className="card-container">
+    <div className="academic-container">
+      <h1 className="academic-header">Academic Routine</h1>
+      <div className="schedule-container">
         {batches.map((batch) => (
-          <div key={batch.id} className="card">
-            <div className="card-header">{batch.batch} Batch</div>
-            <div className="card-body">
-              <div className='card-starting-date'>
-                Starting Date: {batch.start_date}
-              </div>
-              <div className='card-week'>
-                Week Number: {getWeekNumber(batch.start_date)}
-              </div>
-              <div className="card-routine">
-                <h3>Live Class:</h3>
-                <p className="live-class">{getCurrentClass(batch.batch, currentDateTime)}</p>
-              </div>
+          <div key={batch.id} className="schedule-column gradient-border">
+            <div className="box">
+              <h3 className='live-class'>Starting Date</h3>
+              <p>{batch.start_date}</p>
+            </div>
+            <div className="box">
+              <h3 className='live-class'>Current Week</h3>
+              <p className="current-week">{getWeekNumber(batch.start_date)}</p>
+            </div>
+            <div className="box" style={{ backgroundColor: '#fdecea' }}>
+              <h3 className='live-class'>Live Item</h3>
+              <p className="live-class-content">{getCurrentClass(batch.batch, currentDateTime)}</p>
             </div>
           </div>
         ))}
