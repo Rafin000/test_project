@@ -47,27 +47,32 @@ export default function AcademicPage() {
 
 
   
-const getCurrentClass = (batch, currentTime) => {
-  const dayOfWeek = currentTime.toLocaleDateString('en-US', { weekday: 'long' });
-  const time = currentTime.getHours() * 60 + currentTime.getMinutes();
-
-  if (routineData && routineData[batch]) {
-    const routines = routineData[batch].filter(routine => routine.day === dayOfWeek);
-
-    const currentRoutine = routines.find(routine => {
-      const [startHour, startMinute] = routine.start.split(':').map(Number);
-      const [endHour, endMinute] = routine.end.split(':').map(Number);
-      const routineStart = startHour * 60 + startMinute;
-      const routineEnd = endHour * 60 + endMinute;
-
-      return time >= routineStart && time < routineEnd;
-    });
-
-    return currentRoutine ? currentRoutine.class : 'No class';
-  } else {
-    return 'No class';
-  }
+  const getCurrentClass = (batch, currentTime) => {
+    const dayOfWeek = currentTime.toLocaleDateString('en-US', { weekday: 'long' });
+    const time = currentTime.getHours() * 60 + currentTime.getMinutes();
+  
+    if (routineData && routineData[batch]) {
+      const routines = routineData[batch].filter(routine => routine.day === dayOfWeek);
+  
+      const currentRoutine = routines.find(routine => {
+        if (typeof routine.start !== 'string' || typeof routine.end !== 'string') {
+          console.error('Routine time format error', routine);
+          return false;
+        }
+        const [startHour, startMinute] = routine.start.split(':').map(Number);
+        const [endHour, endMinute] = routine.end.split(':').map(Number);
+        const routineStart = startHour * 60 + startMinute;
+        const routineEnd = endHour * 60 + endMinute;
+  
+        return time >= routineStart && time < routineEnd;
+      });
+  
+      return currentRoutine ? currentRoutine.class : 'No class';
+    } else {
+      return 'No class';
+    }
   };
+  
   
 
   const currentDateTime = new Date();

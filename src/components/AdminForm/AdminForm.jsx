@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './AdminForm.css'; // Assuming you have CSS for styling
+import './AdminForm.css';
 
 const AdminForm = () => {
   const [batch, setBatch] = useState('');
