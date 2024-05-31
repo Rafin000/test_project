@@ -1,13 +1,20 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AcademicPage.css';
-import routineData from '../../RoutineData'; // Import routine data
+import { getWeekNumber } from '../../utils';
 
 export default function AcademicPage() {
   const [batches, setBatches] = useState([]);
+  const [routineData, setRoutineData] = useState({});
+  const [offDays, setOffDays] = useState([]);
 
   useEffect(() => {
     fetchBatches();
+    fetchRoutineData();
+    fetchOffDays();
+    const interval = setInterval(fetchRoutineData, 1000);
+
+    return () => clearInterval(interval); 
   }, []);
 
   const fetchBatches = async () => {
@@ -19,31 +26,51 @@ export default function AcademicPage() {
     }
   };
 
-  const getWeekNumber = (startDate) => {
-    const start = new Date(startDate);
-    const today = new Date();
-    const weeksElapsed = Math.floor((today - start) / (7 * 24 * 60 * 60 * 1000));
-    return weeksElapsed + 1;
-  };
-
-  const getCurrentClass = (batch, currentTime) => {
-    const dayOfWeek = currentTime.toLocaleDateString('en-US', { weekday: 'long' });
-    const time = currentDateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    if (routineData && routineData[batch] && routineData[batch][dayOfWeek]) {
-      const routines = routineData[batch][dayOfWeek];
-      const currentRoutine = routines.find(routine => {
-        const routineStart = new Date(`2000-01-01T${routine.start}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        const routineEnd = new Date(`2000-01-01T${routine.end}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        return time >= routineStart && time < routineEnd;
-      });
-      return currentRoutine ? currentRoutine.class : 'No class';
-    } else {
-      return 'No class';
+  const fetchOffDays = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/get-off-days');
+      setOffDays(response.data.map(date => new Date(date)));
+    } catch (error) {
+      console.error('There was an error fetching the off days!', error);
     }
   };
 
-  const currentDateTime = new Date();
 
+  const fetchRoutineData = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/routine-data');
+      setRoutineData(response.data);
+    } catch (error) {
+      console.error('Error fetching routine data:', error);
+    }
+  };
+
+
+  
+const getCurrentClass = (batch, currentTime) => {
+  const dayOfWeek = currentTime.toLocaleDateString('en-US', { weekday: 'long' });
+  const time = currentTime.getHours() * 60 + currentTime.getMinutes();
+
+  if (routineData && routineData[batch]) {
+    const routines = routineData[batch].filter(routine => routine.day === dayOfWeek);
+
+    const currentRoutine = routines.find(routine => {
+      const [startHour, startMinute] = routine.start.split(':').map(Number);
+      const [endHour, endMinute] = routine.end.split(':').map(Number);
+      const routineStart = startHour * 60 + startMinute;
+      const routineEnd = endHour * 60 + endMinute;
+
+      return time >= routineStart && time < routineEnd;
+    });
+
+    return currentRoutine ? currentRoutine.class : 'No class';
+  } else {
+    return 'No class';
+  }
+  };
+  
+
+  const currentDateTime = new Date();
 
   return (
     <div className="academic-container">
@@ -54,10 +81,11 @@ export default function AcademicPage() {
             <div className="box">
               <h3 className='live-class'>Starting Date</h3>
               <p>{batch.start_date}</p>
+              <p>{batch.batch}</p>
             </div>
             <div className="box">
               <h3 className='live-class'>Current Week</h3>
-              <p className="current-week">{getWeekNumber(batch.start_date)}</p>
+              <p className="current-week">{getWeekNumber(batch.start_date, currentDateTime, offDays)}</p>
             </div>
             <div className="box" style={{ backgroundColor: '#fdecea' }}>
               <h3 className='live-class'>Live Item</h3>

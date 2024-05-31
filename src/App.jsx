@@ -5,7 +5,7 @@ import Login from "./components/Login/Login"
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/Common/NavBar/NavBar'
 import Footer from './components/Common/Footer/Footer'
-import { RequireAuth } from "./components/RequireAuth";
+// import { RequireAuth } from "./components/RequireAuth";
 import AboutPage from "./components/About/AboutPage";
 import SimulationLab from "./components/Lab/SimulationLab/SimulationLab";
 import CommunicationLab from "./components/Lab/Communication/CommunicationLab";
@@ -13,6 +13,8 @@ import ElectronicsLab from "./components/Lab/Electronics/ElectronicsLab";
 import ResearchPage from "./components/Research/ResearchPage";
 import ContactPage from "./components/Contact/ContactPage";
 import AcademicPage from "./components/Academic/AcademicPage";
+import OffDays from "./components/OffDays/OffDays";
+import AdminForm from "./components/AdminForm/AdminForm";
 
 export default function App() {
   return (
@@ -20,10 +22,11 @@ export default function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="admin" element={
-          <RequireAuth>
-            <AdminPage />
-          </RequireAuth>} />
+        <Route path="admin" element={<AdminPage />} >
+          <Route index element={<AdminForm/>} />
+          <Route path="start-date" element={<AdminForm/>} />
+          <Route path="off-days" element={<OffDays/>} />
+        </Route>
         <Route path="academic" element={<AcademicPage />} />
         <Route path="about" element={<AboutPage />} />
         <Route path="simulation" element={<SimulationLab />} />

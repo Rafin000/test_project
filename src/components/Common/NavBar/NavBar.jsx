@@ -12,7 +12,7 @@ const Navbar = () => {
   }
 
   return (
-    <nav className='nav-container'>
+    <nav className='nav-container home-nav'>
       <div className='nav-left'>
         <ul className='nav-ul'>
           <li> <a href="https://www.cuet.ac.bd"><img src="cuetlogo.png" className="logo" /></a></li>
