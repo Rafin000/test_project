@@ -22,7 +22,7 @@ const AboutPage = () => {
 
             <div className="card-list">
                 <a href="#" className="card-item">
-                    <img src="antenna4.jpg" alt="Card Image" />
+                    <img src="/public/antenna4.jpg" alt="Card Image" />
                     <span className="developer">Digital & Microprocessor Laboratory</span>
                     <h3>Click here to visit Digital & Microprocessor Laboratory</h3>
                     <div className="arrow">
@@ -30,7 +30,7 @@ const AboutPage = () => {
                     </div>
                 </a>
                 <a href="/simulation" className="card-item">
-                    <img src="Computer_Lab.jpg" alt="Card Image" />
+                    <img src="/public/Computer_Lab.jpg" alt="Card Image" />
                     <span className="designer">Simulation Laboratory</span>
                     <h3>Click here to visit Simulation Laboratory</h3>
                     <div className="arrow">
@@ -38,7 +38,7 @@ const AboutPage = () => {
                     </div>
                 </a>
                 <a href="electronics" className="card-item">
-                    <img src="Electrical.jpeg" alt="Card Image" />
+                    <img src="/public/Electrical.jpeg" alt="Card Image" />
                     <span className="editor">Electronic Device & Circuit Laboratory</span>
                     <h3>Click here to visit Electronic Device & Circuit Laboratory</h3>
                     <div className="arrow">
@@ -46,7 +46,7 @@ const AboutPage = () => {
                     </div>
                 </a>
                 <a href="#" className="card-item">
-                    <img src="lab1.jpg" alt="Card Image" />
+                    <img src="/public/lab1.jpg" alt="Card Image" />
                     <span className="editor">Antenna & Microwave Engineering Laboratory</span>
                     <h3>Click here to visit Antenna & Microwave Engineering Laboratory</h3>
                     <div className="arrow">
@@ -54,7 +54,7 @@ const AboutPage = () => {
                     </div>
                 </a>
                 <a href="communication" className="card-item">
-                    <img src="Telecommunication_Lab.jpg" alt="Card Image" />
+                    <img src="/public/Telecommunication_Lab.jpg" alt="Card Image" />
                     <span className="editor">Communication System Laboratory</span>
                     <h3>Click here to visit Communication System Laboratory</h3>
                     <div className="arrow">

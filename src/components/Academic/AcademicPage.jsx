@@ -19,7 +19,7 @@ export default function AcademicPage() {
 
   const fetchBatches = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/batches');
+      const response = await axios.get('http://103.209.41.225:31218/batches');
       setBatches(response.data);
     } catch (error) {
       console.error('Error fetching batches:', error);
@@ -28,7 +28,7 @@ export default function AcademicPage() {
 
   const fetchOffDays = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/get-off-days');
+      const response = await axios.get('http://103.209.41.225:31218/get-off-days');
       setOffDays(response.data.map(date => new Date(date)));
     } catch (error) {
       console.error('There was an error fetching the off days!', error);
@@ -38,7 +38,7 @@ export default function AcademicPage() {
 
   const fetchRoutineData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/routine-data');
+      const response = await axios.get('http://103.209.41.225:31218/routine-data');
       setRoutineData(response.data);
     } catch (error) {
       console.error('Error fetching routine data:', error);

@@ -4,7 +4,7 @@ const ElectronicsLab = () => {
   return (
     <section className="about-us">
       <div className="about">
-        <img src="Electrical.jpeg" alt="Electronic Device & Circuit Laboratory" className="pic" />
+        <img src="/public/Electrical.jpeg" alt="Electronic Device & Circuit Laboratory" className="pic" />
         <div className="text">
           <h2>Electronic Device & Circuit Laboratory</h2>
           <p>

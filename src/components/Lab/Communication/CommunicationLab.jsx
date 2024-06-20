@@ -4,7 +4,7 @@ const CommunicationLab = () => {
   return (
     <section className="about-us">
       <div className="about">
-        <img src="antenna4.jpg" alt="Communication System Lab" className="pic" />
+        <img src="/public/antenna4.jpg" alt="Communication System Lab" className="pic" />
         <div className="text">
           <h2>Communication System Laboratory</h2>
           <p>

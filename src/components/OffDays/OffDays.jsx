@@ -10,7 +10,7 @@ const OffDays = () => {
   const [offDays, setOffDays] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3001/get-off-days')
+    axios.get('http://103.209.41.225:31218/get-off-days')
       .then(response => {
         console.log("**********",response.data)
         setOffDays(response.data.map(date => new Date(date)));
@@ -28,7 +28,7 @@ const OffDays = () => {
 
   const handleResetOffDays = async () => {
     try {
-      await axios.delete('http://localhost:3001/reset-off-days');
+      await axios.delete('http://103.209.41.225:31218/reset-off-days');
       alert('Off days reset successfully!');
       setOffDays([]);
     } catch (error) {
@@ -44,7 +44,7 @@ const OffDays = () => {
     const startUTC = new Date(Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()));
     const endUTC = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate()));
 
-    axios.post('http://localhost:3001/save-off-days', {
+    axios.post('http://103.209.41.225:31218/save-off-days', {
       startDate: startUTC.toISOString().slice(0, 10),
       endDate: endUTC.toISOString().slice(0, 10)
     })

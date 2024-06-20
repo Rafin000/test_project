@@ -18,7 +18,7 @@ const AdminForm = () => {
     }
 
     try {
-      await axios.post('http://localhost:3001/batches', {
+      await axios.post('http://103.209.41.225:31218/batches', {
         batch: batch,
         startDate: startDate,
       });

@@ -17,16 +17,16 @@ const HomePage = () => {
       <section className="home-header">
         <Slider {...settings}>
           <div>
-            <img src="../../public/gol chottor.jpg" alt="Carousel Image 1" />
+            <img src="/public/gol chottor.jpg" alt="Carousel Image 1" />
           </div>
           <div>
-            <img src="../../public/ete.jpg" alt="Carousel Image 2" />
+            <img src="/public/ete.jpg" alt="Carousel Image 2" />
           </div>
           <div>
-            <img src="../../public/ete2019.jpg" alt="Carousel Image 3" />
+            <img src="/public/ete2019.jpg" alt="Carousel Image 3" />
           </div>
           <div>
-            <img src="../../public/deca.jpg" alt="Carousel Image 3" />
+            <img src="/public/deca.jpg" alt="Carousel Image 3" />
           </div>
         </Slider>
         <div className="content">
